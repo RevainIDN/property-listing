@@ -1,0 +1,98 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	background-color: #20293AF2;
+	padding: 32px 40px;
+	transform: translateY(-50%);
+
+	border: 1px #4A5567 solid;
+	border-radius: 8px;
+}
+
+.option-list {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.option-item {
+	cursor: pointer;
+	padding: 8px 12px;
+}
+
+.option-item:hover {
+	background-color: #4A5567;
+	border-radius: 8px;
+}
+
+.options {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.switch-cont {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.switch {
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 30px;
+}
+
+.switch-input {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.switch-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: 34px;
+	background-color: #4E80EE;
+}
+
+.switch-slider::before {
+	content: '';
+	position: absolute;
+	cursor: pointer;
+	top: 3px;
+	left: 3px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #f9f9f9;
+	transition: 0.3s;
+}
+
+.switch-input:checked+.switch-slider::before {
+	transform: translateX(30px);
+}
+
+.dropdown-list {
+	padding: 12px 24px;
+	border: 2px #4A5567 solid;
+	border-radius: 8px;
+	padding-right: 50px;
+}
+
+.dropdown-cont {
+	position: relative;
+}
+
+.dropdown-icon {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	transform: translateY(-50%);
+}
