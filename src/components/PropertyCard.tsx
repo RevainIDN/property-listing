@@ -3,13 +3,22 @@ import { PropertyData } from '../types';
 
 interface PropertyCardProps {
 	propertyData: PropertyData[] | null;
+	propertyLocation: string;
+	isPropertySuperhost: boolean;
 }
 
-export default function PropertyCard({ propertyData }: PropertyCardProps) {
+export default function PropertyCard({ propertyData, propertyLocation, isPropertySuperhost }: PropertyCardProps) {
 	return (
 		<>
 			{propertyData ? (
-				propertyData.map(property => (
+				propertyData.filter(
+					(property) => {
+						const currentPropertyLocation = !propertyLocation || propertyLocation === property.location
+						const currentPropertySuperhost = !isPropertySuperhost || isPropertySuperhost === property.superhost
+
+						return (currentPropertyLocation && currentPropertySuperhost)
+					}
+				).map(property => (
 					<li key={property.id} className='card-item'>
 						<div className='card-img-cont'>
 							<img className='card-img' src={property.image} alt="" />

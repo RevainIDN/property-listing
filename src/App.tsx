@@ -6,6 +6,8 @@ import PropertyCard from './components/PropertyCard'
 
 export default function App() {
   const [propertyData, setPropertyData] = useState<PropertyData[] | null>(null)
+  const [propertyLocation, setPropertyLocation] = useState<string>('');
+  const [isPropertySuperhost, setIsPropertySuperhost] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,12 +29,19 @@ export default function App() {
           <h1 className='title'>Peace, nature, dream</h1>
           <p className='subtitle'>Find and book a great experience.</p>
         </div>
-        <Navbar />
+        <Navbar
+          propertyData={propertyData}
+          propertyLocation={propertyLocation}
+          setPropertyLocation={setPropertyLocation}
+          setIsPropertySuperhost={setIsPropertySuperhost}
+        />
         <h1 className='cards-title'>Over 200 stays</h1>
         <ul className='card-list'>
           {propertyData ? (
             <PropertyCard
               propertyData={propertyData}
+              propertyLocation={propertyLocation}
+              isPropertySuperhost={isPropertySuperhost}
             />
           ) : (
             <p>Loading property cards...</p>
