@@ -8,6 +8,7 @@ export default function App() {
   const [propertyData, setPropertyData] = useState<PropertyData[] | null>(null)
   const [propertyLocation, setPropertyLocation] = useState<string>('');
   const [isPropertySuperhost, setIsPropertySuperhost] = useState<boolean>(false);
+  const [numberBedrooms, setNumberBedrooms] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +35,7 @@ export default function App() {
           propertyLocation={propertyLocation}
           setPropertyLocation={setPropertyLocation}
           setIsPropertySuperhost={setIsPropertySuperhost}
+          setNumberBedrooms={setNumberBedrooms}
         />
         <h1 className='cards-title'>Over 200 stays</h1>
         <ul className='card-list'>
@@ -42,6 +44,7 @@ export default function App() {
               propertyData={propertyData}
               propertyLocation={propertyLocation}
               isPropertySuperhost={isPropertySuperhost}
+              numberBedrooms={numberBedrooms}
             />
           ) : (
             <p>Loading property cards...</p>

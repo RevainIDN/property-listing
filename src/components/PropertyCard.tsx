@@ -5,9 +5,10 @@ interface PropertyCardProps {
 	propertyData: PropertyData[] | null;
 	propertyLocation: string;
 	isPropertySuperhost: boolean;
+	numberBedrooms: string | null;
 }
 
-export default function PropertyCard({ propertyData, propertyLocation, isPropertySuperhost }: PropertyCardProps) {
+export default function PropertyCard({ propertyData, propertyLocation, isPropertySuperhost, numberBedrooms }: PropertyCardProps) {
 	return (
 		<>
 			{propertyData ? (
@@ -15,8 +16,9 @@ export default function PropertyCard({ propertyData, propertyLocation, isPropert
 					(property) => {
 						const currentPropertyLocation = !propertyLocation || propertyLocation === property.location
 						const currentPropertySuperhost = !isPropertySuperhost || isPropertySuperhost === property.superhost
+						const currentPropertyBedrooms = !numberBedrooms || Number(numberBedrooms) === property.capacity.bedroom;
 
-						return (currentPropertyLocation && currentPropertySuperhost)
+						return (currentPropertyLocation && currentPropertySuperhost && currentPropertyBedrooms)
 					}
 				).map(property => (
 					<li key={property.id} className='card-item'>
