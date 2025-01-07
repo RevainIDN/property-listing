@@ -31,7 +31,6 @@ export default function App() {
           <p className='subtitle'>Find and book a great experience.</p>
         </div>
         <Navbar
-          propertyData={propertyData}
           propertyLocation={propertyLocation}
           setPropertyLocation={setPropertyLocation}
           setIsPropertySuperhost={setIsPropertySuperhost}

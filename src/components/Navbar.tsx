@@ -1,16 +1,14 @@
 import '../styles/Navbar.css'
 import React, { useState } from 'react';
-import { PropertyData } from '../types'
 
 interface NavbarProps {
-	propertyData: PropertyData[] | null;
 	propertyLocation: string;
 	setPropertyLocation: React.Dispatch<React.SetStateAction<string>>;
 	setIsPropertySuperhost: React.Dispatch<React.SetStateAction<boolean>>;
 	setNumberBedrooms: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export default function Navbar({ propertyData, propertyLocation, setPropertyLocation, setIsPropertySuperhost, setNumberBedrooms }: NavbarProps) {
+export default function Navbar({ propertyLocation, setPropertyLocation, setIsPropertySuperhost, setNumberBedrooms }: NavbarProps) {
 	const [isOpenDropdownList, setIsOpenDropdownList] = useState<boolean>(false);
 
 	const handleClickProperty = (e: React.MouseEvent<HTMLElement>) => {
