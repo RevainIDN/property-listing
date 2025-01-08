@@ -10,6 +10,7 @@ interface NavbarProps {
 
 export default function Navbar({ propertyLocation, setPropertyLocation, setIsPropertySuperhost, setNumberBedrooms }: NavbarProps) {
 	const [isOpenDropdownList, setIsOpenDropdownList] = useState<boolean>(false);
+	const [stateDropdownBtn, setStateDropdownBtn] = useState<string | null>('Property type');
 
 	const handleClickProperty = (e: React.MouseEvent<HTMLElement>) => {
 		const value = e.currentTarget.getAttribute('data-value');
@@ -23,6 +24,7 @@ export default function Navbar({ propertyLocation, setPropertyLocation, setIsPro
 	const handleSelectProperty = (e: React.MouseEvent<HTMLElement>) => {
 		const value = e.currentTarget.getAttribute('data-value');
 		setNumberBedrooms(value);
+		setStateDropdownBtn(e.currentTarget.textContent);
 	}
 
 	const openDropdownList = () => {
@@ -44,13 +46,13 @@ export default function Navbar({ propertyLocation, setPropertyLocation, setIsPro
 						<input className='switch-input' type="checkbox" onChange={handleChangeProperty} />
 						<span className='switch-slider'></span>
 					</label>
-					<p>Superhost</p>
+					<p className='switch-title'>Superhost</p>
 				</div>
 				<div className='dropdown-cont' onClick={openDropdownList}>
-					<div className='dropdown-title'>Property type</div>
+					<div className='dropdown-title'>{stateDropdownBtn}</div>
 					<img className='dropdown-icon' src="Expand_down.svg" alt="" />
 					<ul className='dropdown-list' style={{ display: isOpenDropdownList ? 'flex' : 'none' }}>
-						<li className='dropdown-item' data-value={null} onClick={handleSelectProperty}>All</li>
+						<li className='dropdown-item' data-value={null} onClick={handleSelectProperty}>All options</li>
 						<li className='dropdown-item' data-value='1' onClick={handleSelectProperty}>One Bedroom</li>
 						<li className='dropdown-item' data-value='2' onClick={handleSelectProperty}>Two Bedrooms</li>
 					</ul>
