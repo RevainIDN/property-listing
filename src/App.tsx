@@ -30,12 +30,14 @@ export default function App() {
           <h1 className='title'>Peace, nature, dream</h1>
           <p className='subtitle'>Find and book a great experience.</p>
         </div>
-        <Navbar
-          propertyLocation={propertyLocation}
-          setPropertyLocation={setPropertyLocation}
-          setIsPropertySuperhost={setIsPropertySuperhost}
-          setNumberBedrooms={setNumberBedrooms}
-        />
+        <div className='navbar-cont'>
+          <Navbar
+            propertyLocation={propertyLocation}
+            setPropertyLocation={setPropertyLocation}
+            setIsPropertySuperhost={setIsPropertySuperhost}
+            setNumberBedrooms={setNumberBedrooms}
+          />
+        </div>
         <h1 className='cards-title'>Over 200 stays</h1>
         <ul className='card-list'>
           {propertyData ? (

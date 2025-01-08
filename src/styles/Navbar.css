@@ -13,6 +13,7 @@
 .option-list {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 12px;
 }
 
@@ -25,6 +26,7 @@
 .option-item:hover {
 	background-color: #4A5567;
 	border-radius: 8px;
+	transition: 0.2s;
 }
 
 .options {
@@ -87,6 +89,8 @@
 
 .dropdown-title {
 	cursor: pointer;
+	text-align: center;
+	width: 190px;
 	padding: 12px 24px;
 	border: 2px #4A5567 solid;
 	border-radius: 8px;
@@ -124,4 +128,29 @@
 
 .dropdown-list li:hover {
 	color: #7E869E;
+}
+
+@media (max-width: 1024px) {
+	.navbar {
+		flex-direction: column;
+		gap: 20px;
+		width: 80%;
+	}
+
+	.option-list {
+		justify-content: center;
+	}
+
+	.options {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 780px) {
+	.navbar {
+		width: 100%;
+		padding: 20px 20px;
+		transform: translateY(-15%);
+	}
 }
